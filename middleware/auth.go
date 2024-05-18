@@ -30,7 +30,7 @@ func VerifyToken(next httprouter.Handle) httprouter.Handle {
 			} else if !token.Valid {
 				helper.Unauthorized(w)
 			} else {
-				ctx := context.WithValue(r.Context(), "staff_id", claims.StaffId)
+				ctx := context.WithValue(r.Context(), "user_id", claims.UserId)
 				next(w, r.WithContext(ctx), p)
 			}
 		}

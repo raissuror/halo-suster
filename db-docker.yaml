@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: halo_suster_db
+    image: postgres:12.13-bullseye
+    environment:
+      POSTGRES_DB: halo_suster_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: test123
+      PGDATA: /data/postgres
+    volumes:
+       - postgres-db:/data/postgres
+    ports:
+      - "5432:5432"
+
+
+volumes:
+  postgres-db:
+    driver: local
